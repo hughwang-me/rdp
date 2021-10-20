@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 9090
+  servlet:
+    context-path: /rdp-auth-server
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  key: value
