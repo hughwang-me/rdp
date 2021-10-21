@@ -5,5 +5,5 @@ spring:
         server-addr: rdp.uwjx.com:8848
         namespace: 8bb51937-e343-407e-9daa-df26942d30f9
         cluster-name: SHANGHAI
-        metadata:
-          key: value
+server:
+  port: 9091

@@ -19,7 +19,7 @@ docker run --name rdp-nacos --restart=always \
     -e MYSQL_SERVICE_DB_NAME=rdp-nacos \
     -e MYSQL_SERVICE_USER=root \
     -e MYSQL_SERVICE_PASSWORD=2021@uwjx@COM \
-    -p 8848:8848 -p 9848:9848 -d nacos/nacos-server:2.0.3
+    -p 8848:8848 -p 9848:9848 -d nacos/nacos-server:1.4.2
 
 ``` 
 

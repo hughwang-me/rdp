@@ -1,11 +1,10 @@
 spring:
   profiles:
     active: dev
-
+  application:
+    name: rdp-auth-server
 server:
   port: 9090
-  servlet:
-    context-path: /rdp-auth-server
 
 management:
   endpoint:
