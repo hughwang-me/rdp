@@ -8,3 +8,11 @@ ribbon:
   eager-load:
     enabled: true
     clients: rdp-auth-server
+logging:
+  level:
+    com.rx.rdp.app: debug
+feign:
+  client:
+    config:
+      rdp-auth-server:
+        loggerLevel: FULL
