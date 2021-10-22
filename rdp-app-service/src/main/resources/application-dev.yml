@@ -4,3 +4,7 @@ spring:
       discovery:
         server-addr: rdp.uwjx.com:8848
         namespace: 8bb51937-e343-407e-9daa-df26942d30f9
+ribbon:
+  eager-load:
+    enabled: true
+    clients: rdp-auth-server
