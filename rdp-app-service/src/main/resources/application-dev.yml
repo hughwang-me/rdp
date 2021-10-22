@@ -14,5 +14,9 @@ logging:
 feign:
   client:
     config:
+      ## 全局维度配置
+      default:
+        loggerLevel: BASIC
+      ## 服务维度配置
       rdp-auth-server:
         loggerLevel: FULL

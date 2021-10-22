@@ -2,6 +2,7 @@ package com.rx.rdp.app.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.rx.rdp.app.feign.AuthServerTestClient;
+import com.rx.rdp.app.feign.TestUwjxClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -30,6 +31,8 @@ public class AppController {
 //    RestTemplate restTemplate;
     @Autowired
     AuthServerTestClient authServerTestClient;
+    @Autowired
+    TestUwjxClient testUwjxClient;
 
     @GetMapping(value = "t1")
     public Map<String , Object> t1(){
@@ -41,6 +44,17 @@ public class AppController {
         String response = authServerTestClient.authT1();
         log.warn("响应的的内容:{}" , response);
         map.put("map", response);
+        return map;
+    }
+
+    @GetMapping(value = "uwjx")
+    public Map<String , Object> uwjx(){
+        Map<String , Object> map = new HashMap<String, Object>();
+        log.warn("APP -> uwjx()");
+
+        String response = testUwjxClient.index();
+        log.warn("响应的的内容:{}" , response);
+        map.put("uwjx", response);
         return map;
     }
 }
