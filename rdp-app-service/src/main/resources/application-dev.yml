@@ -20,3 +20,9 @@ feign:
       ## 服务维度配置
       rdp-auth-server:
         loggerLevel: FULL
+#  httpclient:
+#    enabled: true
+#    max-connections: 200
+#    max-connections-per-route: 50
+  okhttp:
+    enabled: true
