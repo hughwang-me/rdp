@@ -1,5 +1,12 @@
 ## nacos 版本 2.0.3
 
+>http://rdp.zsrxit.com:8848/nacos/index.html
+> 
+> http://106.14.40.132/
+>
+>nacos
+> 
+>rx@rdp@NACOS
 
 #### 初始化MYSQL
 > init-mysql.sql
