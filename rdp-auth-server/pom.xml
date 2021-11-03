@@ -13,10 +13,15 @@
     <version>${rdp-auth-server.version}</version>
     <name>rdp-auth-server</name>
     <description>auth-server</description>
+
     <properties>
         <rdp-auth-server.version>1.0.0</rdp-auth-server.version>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,6 +52,7 @@
     </dependencies>
 
     <build>
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
