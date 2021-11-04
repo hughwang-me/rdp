@@ -1,18 +1,9 @@
-spring:
-  profiles:
-    active: dev
-  application:
-    name: rdp-auth-server
 server:
   port: 9090
+spring:
+  application:
+    name: rdp-auth-server
+  profiles:
+    active: dev
 
-management:
-  endpoint:
-    health:
-      show-details: always
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-info:
-  key: value
+

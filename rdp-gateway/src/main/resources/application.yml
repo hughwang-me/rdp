@@ -3,19 +3,5 @@ server:
 spring:
   application:
     name: rdp-gateway
-  cloud:
-    nacos:
-      discovery:
-        server-addr: rdp.zsrxit.com:8848
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: always
+  profiles:
+    active: dev
