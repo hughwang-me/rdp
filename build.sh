@@ -9,4 +9,4 @@
 
 #mvn clean package -Dmaven.test.skip=true -P rdp-gateway
 
-mvn -B -e -U clean package -Dmaven.test.skip=true
+mvn -B -e -U clean package -Dmaven.test.skip=true -P rdp-gateway
