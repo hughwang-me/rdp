@@ -1,4 +1,4 @@
-mvn -B clean package -Dmaven.test.skip=true -Dautoconfig.skip
+mvn -B clean package -Dmaven.test.skip=true
 
 # -Dmaven.repo.local=[仓库位置]
 # 使用-U参数： 该参数能强制让Maven检查所有SNAPSHOT依赖更新，确保集成基于最新的状态，如果没有该参数，Maven默认以天为单位检查更新，而持续集成的频率应该比这高很多。
