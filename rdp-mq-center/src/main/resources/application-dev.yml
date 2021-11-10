@@ -16,8 +16,7 @@ management:
   endpoint:
     health:
       show-details: always
-
 rocketmq:
-  isEnable: true
-  nameServerAddr: 106.14.40.132:9876
-  groupName: rdp-dev-g1
+  name-server: 106.14.40.132:9876
+  producer:
+    group: rdp-group-dev
