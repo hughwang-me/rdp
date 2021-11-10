@@ -1,0 +1,108 @@
+== RocketMQ 部署和使用说明
+
+=== 1. 项目
+
+____
+
+项目地址：https://rocketmq.apache.org/docs/quick-start
+
+文档地址：https://github.com/apache/rocketmq/tree/master/docs/cn
+
+RocketMQ 分为 NameServer 和 Broker 2个服务
+
+可以单机部署或者分布式部署
+
+____
+
+=== 2. 单机部署
+
+`以当前最新的 4.9.2 版本为例，以 Linux 系统运行为示例。`
+
+===== 2.1 二进制文件部署
+
+====== 2.1.1 下载二进制 zip 文件
+
+下载二进制文件包 `https://dlcdn.apache.org/rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip`
+
+====== 2.1.2 修改默认配置文件
+
+解压后注意2个文件：`rocketmq-4.9.2/bin/runserver.sh` 和 `rocketmq-4.9.2/bin/runbroker.sh`
+
+____
+
+默认的 RocketMQ 配置 NameServer 和 Broker 都占用 4G 系统内存，普通测试或者开发集群无法达到这个要求，所以运行前需要改下这 2 个启动脚本文件中的配置。
+
+____
+
+以下是修改 `rocketmq-4.9.2/bin/runserver.sh` 文件中的配置
+
+----
+...
+choose_gc_options()
+{
+    # Example of JAVA_MAJOR_VERSION value : '1', '9', '10', '11', ...
+    # '1' means releases befor Java 9
+    JAVA_MAJOR_VERSION=$("$JAVA" -version 2>&1 | sed -r -n 's/.* version "([0-9]*).*$/\1/p')
+    if [ -z "$JAVA_MAJOR_VERSION" ] || [ "$JAVA_MAJOR_VERSION" -lt "9" ] ; then
+      JAVA_OPT="${JAVA_OPT} -server -Xms4g -Xmx4g -Xmn2g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"
+      JAVA_OPT="${JAVA_OPT} -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+CMSClassUnloadingEnabled -XX:SurvivorRatio=8 -XX:-UseParNewGC"
+      JAVA_OPT="${JAVA_OPT} -verbose:gc -Xloggc:${GC_LOG_DIR}/rmq_srv_gc_%p_%t.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps"
+      JAVA_OPT="${JAVA_OPT} -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=30m"
+    else
+      JAVA_OPT="${JAVA_OPT} -server -Xms4g -Xmx4g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"
+      JAVA_OPT="${JAVA_OPT} -XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30 -XX:SoftRefLRUPolicyMSPerMB=0"
+      JAVA_OPT="${JAVA_OPT} -Xlog:gc*:file=${GC_LOG_DIR}/rmq_srv_gc_%p_%t.log:time,tags:filecount=5,filesize=30M"
+    fi
+}
+...
+----
+
+修改 `JAVA_OPT=&quot;${JAVA_OPT} -server -Xms4g -Xmx4g -Xmn2g` 为 `JAVA_OPT=&quot;${JAVA_OPT} -server -Xms1g -Xmx1g -Xmn512m`
+
+修改 `JAVA_OPT=&quot;${JAVA_OPT} -server -Xms4g -Xmx4g` 为 `JAVA_OPT=&quot;${JAVA_OPT} -server -Xms1g -Xmx1g`
+
+以下是修改 `rocketmq-4.9.2/bin/runbroker.sh` 文件中的配置
+
+修改 `JAVA_OPT=&quot;${JAVA_OPT} -server -Xms8g -Xmx8g&quot;` 为 `JAVA_OPT=&quot;${JAVA_OPT} -server -Xms1g -Xmx1g&quot;`
+
+外网部署需要修改 Broker 默认配置文件 `conf/broker.conf` 在最后面加上如下配置
+
+----
+...
+brokerIP1=外网IP 
+----
+
+===== 2.2 启动服务
+
+====== # 启动 `NameServer` 服务
+
+----
+nohup sh bin/mqnamesrv &
+----
+
+====== # 启动 `Broker` 服务
+
+----
+本地或者内网启动
+nohup sh bin/mqbroker -n localhost:9876 &
+
+外网启动
+nohup sh bin/mqbroker -n 外网IP:9876 -c conf/broker.conf autoCreateTopicEnable=true &
+比如 106.14.40.132
+nohup sh bin/mqbroker -n 106.14.40.132:9876 -c conf/broker.conf autoCreateTopicEnable=true &
+----
+
+===== 2.3 启动监控服务
+
+____
+
+https://github.com/apache/rocketmq-dashboard
+https://hub.docker.com/r/apacherocketmq/rocketmq-dashboard
+
+____
+
+----
+docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=106.14.40.132:9876" -p 9102:8080 -t apacherocketmq/rocketmq-dashboard:latest
+----
+
+====== 接下来就可以访问 `http://106.14.40.132:9102` 查看控制台了
