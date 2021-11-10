@@ -15,6 +15,7 @@
     <modules>
         <module>rdp-auth-server</module>
         <module>rdp-gateway</module>
+        <module>rdp-mq-center</module>
     </modules>
 
     <properties>
@@ -57,6 +58,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.76</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>4.9.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.14.40.132:8848
+        namespace: 8bb51937-e343-407e-9daa-df26942d30f9
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+rocketmq:
+  isEnable: true
+  nameServerAddr: 106.14.40.132:9876
+  groupName: rdp-dev-g1
