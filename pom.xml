@@ -15,7 +15,7 @@
     <modules>
         <module>rdp-auth-server</module>
         <module>rdp-gateway</module>
-        <module>rdp-mq-center</module>
+<!--        <module>rdp-mq-center</module>-->
     </modules>
 
     <properties>
