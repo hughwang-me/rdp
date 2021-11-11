@@ -1,13 +1,13 @@
-package com.rx.rdp.commons;
+package com.rx.rdp.common.utils;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RdpCommonsApplication {
+public class RdpCommonUtilsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RdpCommonsApplication.class, args);
+        SpringApplication.run(RdpCommonUtilsApplication.class, args);
     }
 
 }
