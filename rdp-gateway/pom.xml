@@ -7,6 +7,7 @@
         <artifactId>rdp</artifactId>
         <version>1.0.0</version>
     </parent>
+
     <artifactId>rdp-gateway</artifactId>
     <version>${rdp-gateway.version}</version>
     <name>rdp-gateway</name>
@@ -41,16 +42,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-<!--                <configuration>-->
-<!--                    <fork>true</fork>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>repackage</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
