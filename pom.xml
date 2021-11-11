@@ -8,14 +8,13 @@
     <version>${rdp.version}</version>
 
     <name>rdp</name>
-    <url>https://www.rongxin.com</url>
+    <url>http://www.zsrxit.com</url>
     <description>RDP</description>
     <packaging>pom</packaging>
 
     <modules>
         <module>rdp-auth-server</module>
         <module>rdp-gateway</module>
-<!--        <module>rdp-mq-center</module>-->
     </modules>
 
     <properties>
