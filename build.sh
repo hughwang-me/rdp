@@ -9,4 +9,6 @@
 
 #mvn clean package -Dmaven.test.skip=true -P rdp-gateway
 
-mvn -B -e -U clean package -Dmaven.test.skip=true -P rdp-gateway
+#mvn -B -e -U clean package -Dmaven.test.skip=true -P rdp-gateway
+
+mvn -B -e -U clean package -Dmaven.test.skip=true -pl rdp-pm/rdp-pm-im

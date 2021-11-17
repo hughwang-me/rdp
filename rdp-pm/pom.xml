@@ -14,6 +14,10 @@
     <name>rdp-pm</name>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>rdp-pm-im</module>
+    </modules>
+
     <description>
         项目管理 + 即时通讯
     </description>
