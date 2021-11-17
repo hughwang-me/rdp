@@ -14,5 +14,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "app-test")
 public class AppTestController {
 
-    public
 }

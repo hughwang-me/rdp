@@ -14,7 +14,9 @@ RocketMQ Dashboard 9102
 
 MQ 服务 9093
 
+> PM
 
+rdp-pm-im 服务 : 9201
 
 临时：9200
 ____

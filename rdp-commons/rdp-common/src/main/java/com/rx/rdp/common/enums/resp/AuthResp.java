@@ -23,8 +23,9 @@ public enum AuthResp
     OTHER("OTHER",  3);
 
 
-    private String name;
     private int value;
+    private String name;
+
 
     AuthResp(String name , int value) {
         this.name = name;
