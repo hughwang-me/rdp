@@ -9,12 +9,11 @@
     </parent>
 
     <artifactId>rdp-gateway</artifactId>
-    <version>${rdp-gateway.version}</version>
+    <version>1.0.0</version>
     <name>rdp-gateway</name>
     <description>网关服务</description>
 
     <properties>
-        <rdp-gateway.version>1.0.0</rdp-gateway.version>
         <java.version>8</java.version>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>8</maven.compiler.source>
@@ -37,7 +36,7 @@
     </dependencies>
 
     <build>
-        <finalName>${artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

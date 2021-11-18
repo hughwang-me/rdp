@@ -1,5 +1,7 @@
 package com.rx.rdp.pm.im.controller;
 
+import com.rx.rdp.common.domain.CommonResp;
+import com.rx.rdp.common.utils.text.TextUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ImController {
 
     @GetMapping
-    public String im(){
-        return "rdp-pm-im -> im";
+    public CommonResp t1()
+    {
+        String uuid = TextUtils.uuid();
+        return CommonResp.success(uuid);
     }
 }

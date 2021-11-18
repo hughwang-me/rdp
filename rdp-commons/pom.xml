@@ -14,8 +14,14 @@
     <packaging>pom</packaging>
 
     <description>RDP通用组件</description>
+
+    <modules>
+        <module>rdp-common</module>
+        <module>rdp-common-utils</module>
+    </modules>
+
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
 
 </project>

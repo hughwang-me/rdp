@@ -11,4 +11,13 @@
 
 #mvn -B -e -U clean package -Dmaven.test.skip=true -P rdp-gateway
 
-mvn -B -e -U clean package -Dmaven.test.skip=true -pl rdp-pm/rdp-pm-im
+#mvn -B -e -U clean package install -Dmaven.test.skip=true -pl rdp-commons/rdp-common
+
+#mvn clean install org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests -pl rdp-commons/rdp-common-utils -s maven/settings.xml
+
+
+#mvn -e clean install -DskipTests -pl rdp-commons/rdp-common
+
+mvn -e clean package -DskipTests -pl rdp-pm/rdp-pm-im
+
+#mvn clean install org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests

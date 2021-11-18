@@ -47,5 +47,15 @@ public class CommonResp extends HashMap<String , Object>
         return new CommonResp(code , msg , data);
     }
 
+    public static CommonResp success(int code, String msg)
+    {
+        return new CommonResp(code , msg , "");
+    }
+
+    public static CommonResp success(Object data)
+    {
+        return new CommonResp(200 , "success" , data);
+    }
+
 
 }
